@@ -1,25 +1,18 @@
-public class Solution {
+class Solution {
     public int lengthOfLIS(int[] nums) {
-        int memo[][] = new int[nums.length + 1][nums.length];
-        for (int[] l : memo) {
-            Arrays.fill(l, -1);
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp, 1);
+        int best = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            best = Math.max(best, dp[i]);
         }
-        return lengthofLIS(nums, -1, 0, memo);
+        return best;
     }
-    public int lengthofLIS(int[] nums, int previndex, int curpos, int[][] memo) {
-        if (curpos == nums.length) {
-            return 0;
-        }
-        if (memo[previndex + 1][curpos] >= 0) {
-            return memo[previndex + 1][curpos];
-        }
-        int taken = 0;
-        if (previndex < 0 || nums[curpos] > nums[previndex]) {
-            taken = 1 + lengthofLIS(nums, curpos, curpos + 1, memo);
-        }
-
-        int nottaken = lengthofLIS(nums, previndex, curpos + 1, memo);
-        memo[previndex + 1][curpos] = Math.max(taken, nottaken);
-        return memo[previndex + 1][curpos];
-    }
+    
+   
 }
