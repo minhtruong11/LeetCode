@@ -1,3 +1,4 @@
+[Discussion Post (created on 12/10/2021 at 11:10)](https://leetcode.com/problems/kth-largest-element-in-a-stream/discuss/1573345/python3-or-heap)  
 <h2>703. Kth Largest Element in a Stream</h2><h3>Easy</h3><hr><div><p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
 <p>Implement <code>KthLargest</code> class:</p>
