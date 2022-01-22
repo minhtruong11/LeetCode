@@ -18,7 +18,7 @@ class Solution {
         
         if (minValue >= lower && maxValue <= upper) {
             return upper - maxValue + 1;
-        } else if (minValue <= lower && maxValue < upper) {
+        } else if (minValue <= lower && maxValue <= upper) {
             if (maxValue + (lower - minValue) > upper) {
                 return 0;
             } else {
