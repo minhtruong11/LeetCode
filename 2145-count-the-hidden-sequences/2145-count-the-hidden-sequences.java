@@ -13,10 +13,11 @@ class Solution {
             maxValue = Math.max(maxValue, hidden[i]);
         }
         
+        if (maxValue > upper) 
+            return 0;
+        
         if (minValue >= lower && maxValue <= upper) {
             return upper - maxValue + 1;
-        } else if (maxValue >= upper) {
-            return 0;
         } else if (minValue <= lower && maxValue < upper) {
             if (maxValue + (lower - minValue) > upper) {
                 return 0;
