@@ -1,7 +1,7 @@
 class Solution {
     public int minimumOperations(int[] nums) {
         int n = nums.length;
-        // System.out.println(n);
+        
         if (n==1)   return 0;
         
         Map<Integer, Integer> evens = new TreeMap<>();
@@ -14,9 +14,6 @@ class Solution {
                 odds.put(nums[i], odds.getOrDefault(nums[i], 0)+1);    
             }
         }
-        
-        System.out.println(odds);
-        System.out.println(evens);
         
         int maxEvenKey = Integer.MIN_VALUE;
         int maxEvenFreq = Integer.MIN_VALUE;
@@ -52,10 +49,7 @@ class Solution {
             }
         }
         
-        System.out.printf("%d %d %d %d\n", maxEvenKey, maxEvenFreq, maxOddKey, maxOddFreq);
-        
         if (maxEvenKey == maxOddKey) {
-            System.out.println(secondMaxOddKey);
             return n - Math.max(maxEvenFreq + odds.getOrDefault(secondMaxOddKey, 0),
                                 maxOddFreq + evens.getOrDefault(secondMaxEvenKey, 0));
         }
