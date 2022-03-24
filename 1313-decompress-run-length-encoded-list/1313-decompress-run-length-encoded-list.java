@@ -11,6 +11,13 @@ class Solution {
             }
         }
         
-        return res.stream().mapToInt(i->i).toArray();
+        int[] arr = new int[res.size()];
+        int i=0;
+        
+        for (int num : res) {
+            arr[i++] = num;
+        }
+        
+        return arr;
     }
 }
